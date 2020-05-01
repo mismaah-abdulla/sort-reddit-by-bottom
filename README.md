@@ -3,5 +3,7 @@ Since Reddit doesn't have an option to sort comments by bottom (lowest score fir
 
 ## Instructions
 Run the python file (Python 3 is required)
+
 Enter reddit thread url
+
 Open the generated html file
