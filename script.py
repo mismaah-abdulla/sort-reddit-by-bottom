@@ -2,10 +2,11 @@ import requests
 import json
 import concurrent.futures
 import time
+import os
 
 def getMoreComments(unsortedComments, threadLink, commentID):
     url = f'https://reddit.com{threadLink}{commentID}.json'
-    print(url)
+    print(f'Fetching comments {commentID}')
     resp = requests.get(url, headers = {'User-agent': 'lol'})
     if resp.ok:
         data = resp.json()[1]["data"]["children"]
@@ -76,8 +77,8 @@ try:
                 <hr class="divider">'''
             html = html + "</div></div></body>"
             f.write(html)
-        print("Open index.html to view results. Exiting...")
-        time.sleep(5)
+        print("Complete. Results saved in index.html")
+        os.system("start " + "index.html")
     else:
         print(resp.status_code)
 except:
