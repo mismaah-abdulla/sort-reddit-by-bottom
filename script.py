@@ -1,6 +1,7 @@
 import requests
 import json
 import concurrent.futures
+import time
 
 def getMoreComments(unsortedComments, threadLink, commentID):
     url = f'https://reddit.com{threadLink}{commentID}.json'
@@ -75,7 +76,10 @@ try:
                 <hr class="divider">'''
             html = html + "</div></div></body>"
             f.write(html)
+        print("Open index.html to view results. Exiting...")
+        time.sleep(5)
     else:
         print(resp.status_code)
 except:
-    print("Invalid")
+    print("Invalid. Exiting...")
+    time.sleep(5)
